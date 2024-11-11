@@ -2,7 +2,6 @@ package com.user.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.user.entities.CardioExercise;
 import com.user.entities.CardioExerciseDTO;
 import com.user.exerciseClient.CardioExerciseClient;
-//import com.user.exerciseClient.ExerciseClient;
+
 
 @RequestMapping("/cardioClient")
 @RestController
@@ -43,13 +41,8 @@ public class CardioExerciseClientController {
 		newcardio.setDistance(cardioExerciseDTO.getDistance());
 		newcardio.setTimeSpent(cardioExerciseDTO.getTimeSpent());
 		newcardio.setExerciseType(cardioExerciseDTO.getExerciseType());
-		newcardio.setUserId(userId);
-		
+		newcardio.setUserId(userId);	
 		return exerciseClient.createExercise(newcardio);
-
-		
-		
-		
 	}
 	@DeleteMapping("/{id}")
     public Void deleteExercise(@PathVariable("id") long cardioId) {
@@ -59,8 +52,5 @@ public class CardioExerciseClientController {
 		public CardioExercise updateExercise(@PathVariable("id") long cardioId, @RequestBody CardioExercise cardioExercise) {
 		return exerciseClient.updateExercise(cardioId, cardioExercise);
 	}
-
-
-
 
 }
