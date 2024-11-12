@@ -1,0 +1,162 @@
+/* Centered, Transparent Signup Page */
+.signup-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background: url('/assets/images/pexels-juanpphotoandvideo-1242348.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.signup-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+.signup-form {
+    width: 100%;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.line {
+    width: 1px;
+    height: 40px;
+    background-color: #ddd;
+    margin: 0 10px;
+}
+
+.signup-title {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    color: #333;
+    margin-top: 10px;
+    font-size: 24px; /* Increased font size for better visibility */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    position: relative; /* Added for alignment */
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 20px; 
+}
+
+/* Standardize input fields */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    margin-top: 5px;
+    box-sizing: border-box; /* Ensures padding and border are inside the element's width */
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+/* Adjust the width and padding for the inputs with units */
+.input-with-unit .input-container {
+    position: relative;
+}
+
+.input-with-unit input {
+    width: 100%; /* Adjust width to 100% */
+    padding-right: 30px; /* Adjust padding for space for the unit */
+    box-sizing: border-box; /* Ensures consistent sizing */
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+.input-with-unit .unit {
+    position: absolute;
+    right: 10px; /* Move unit closer to the border */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #555;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .register-link a {
+    color: #e91e63;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+/* Radio button styling */
+.radio-group {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    gap: 5px;
+}
+
+.radio-group label {
+    margin-right: 15px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+/* Button styling */
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600; /* Bolder font weight */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+.signup-btn:hover {
+    background-color: #218838;
+}
+
+.signup-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        padding: 20px;
+    }
+    .form-group-inline {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,174 @@
+/* Full background with centered content */
+.weightlifting-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height:auto;
+    background: url('/assets/images/pexels-gato-joseph-52379704-26726131.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding-top: 10px;
+}
+.diary-text {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+/* Date navigation styling */
+.date-navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.date-navigation button {
+    background-color: #f1fcf4;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.date-navigation .previous,
+.date-navigation .next {
+    width: 40px; /* Adjust width to fit symbol size */
+    padding: 5px; /* Smaller padding for compact look */
+    font-size: 1.2em; /* Adjust font size to make symbols clear */
+}
+
+.date-navigation .current-date {
+    background-color: #e5ebe6;
+    font-weight: bolder;
+    font-size: 1em;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-navigation .calendar-icon {
+    font-size: 1.2em;
+}
+
+/* Date button hover effects */
+.date-navigation button:hover {
+    background-color: #434443;
+}
+
+.date-navigation p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* Form container styling */
+.form {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Title and date */
+.title h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+    color: rgb(250, 247, 247);
+}
+
+/* Form styling */
+.exercise-form {
+    background: rgba(56, 53, 53, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-form label {
+    font-weight: 700;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.exercise-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* General button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+button:hover {
+    background-color: rgb(58, 57, 57);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .title h1 {
+        font-size: 2em;
+    }
+    .date-navigation button {
+        width: 120px;
+        font-size: 0.8em;
+    }
+    .form {
+        width: 90%;
+    }
+    .exercise-form {
+        padding: 15px;
+    }
+    button {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 1.8em;
+    }
+    .exercise-form input {
+        padding: 8px;
+    }
+    button {
+        font-size: 0.8em;
+        padding: 7px;
+    }
+}

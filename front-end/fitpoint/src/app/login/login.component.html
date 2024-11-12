@@ -1,0 +1,41 @@
+<div class="login-page">
+  <div class="login-container">
+    <div class="login-form-container">
+      <div class="login-form">
+        <!-- Header Section with Logo, Line, and Title -->
+        <div class="form-header">
+          <!-- <img src="/assets/images/i1.png" alt="FitPoint Logo" class="logo" /> -->
+          <!-- <div class="line"></div> -->
+          <!-- <h2>FitPoint</h2> -->
+        </div>
+        
+        <!-- Centered Logo -->
+        <div class="center-logo">
+          <img src="/assets/images/user (4).png" alt="FitPoint Logo" class="centered-login-logo" />
+        </div>
+
+        <!-- Login Form -->
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <div class="form-group">
+            <div class="icon-outside">
+              <img src="/assets/images/user (2).png" alt="User Icon" class="outside-icon" />
+            </div>
+            <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required />
+          </div>
+          <div class="form-group">
+            <div class="icon-outside">
+              <img src="/assets/images/locked-computer.png" alt="Password Icon" class="outside-icon" />
+            </div>
+            <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required />
+          </div>
+          <div class="login-btn-group">
+            
+            <button type="submit" class="login-btn" [disabled]="!loginForm.form.valid">Login</button>
+          </div>
+        </form>
+        
+        <p class="register-link">Don't have an account? <a href="/signup">Register here</a></p>
+      </div>
+    </div>
+  </div>
+</div>

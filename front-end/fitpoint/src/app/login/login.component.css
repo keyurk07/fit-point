@@ -1,0 +1,122 @@
+/* General Page Styling */
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('/assets/images/pexels-juanpphotoandvideo-1242348.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Container Styling */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styling */
+.login-form {
+  width: 100%;
+}
+
+/* Centered Logo Styling */
+.center-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.centered-login-logo {
+  width: 80px;
+  height: 80px;
+}
+
+/* Input field with icon outside */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; /* Increased space between input fields */
+  position: relative;
+}
+
+.icon-outside {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.outside-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Input Field Styling */
+.form-group input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fafafa;
+  width: calc(100% - 40px);
+}
+
+/* Login Button with Outside Icon */
+.login-btn-group {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  flex: 1;
+  padding: 12px;
+  background-color: #e91e63;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.login-btn:hover {
+  background-color: #d81b60;
+}
+
+.login-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Register Link */
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.register-link a {
+  color: #e91e63;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 100%;
+    margin: 20px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,16 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    </style>
+<div class="diet-container">
+    <div class="title">
+        <h1>Track Your Cardio</h1>
+        <p class="diary-text">Your Exercise Diary for</p>
+        <div class="date-navigation">
+            <button (click)="goToPreviousDay()" class="previous">&#8249; </button>
+            <button class="current-date" style="width: auto;">
+                <span class="calendar-icon">&#128197;</span>
+                <p>{{ currentDate | date: 'fullDate' }}</p>
+            </button>
+            <button (click)="goToNextDay()" class="next"> &#8250;</button>
+        </div>
+    </div>
