@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CardioService } from '../cardio.service';
 
 @Component({
   selector: 'app-cardio',
@@ -15,8 +16,9 @@ export class CardioComponent {
 
   exercises:{exerciseType:string;distance:number;time:number}[]=[];
 
-  constructor() {
+  constructor(private cardioservice:CardioService) {
     this.currentDate = new Date(); // Initialize with today's date
+    
   }
 
   ngOnInit(): void {
@@ -44,6 +46,8 @@ export class CardioComponent {
         time:this.time
       });
       console.log("exercise added!");
+      
+      this.cardioservice.add(this.exerciseType, this.distance, this.time);
       this.exerciseType='';
       this.distance=0;
       this.time=0;

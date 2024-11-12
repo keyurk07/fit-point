@@ -14,6 +14,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { CardioComponent } from './cardio/cardio.component';
 import { WeightComponent } from './weight/weight.component';
 import { DietComponent } from './diet/diet.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DietComponent } from './diet/diet.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
