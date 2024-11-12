@@ -12,6 +12,80 @@
     text-align: center;
     padding-top: 10px;
 }
+.exercise-list {
+    margin-top: 20px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(56, 53, 53, 0.85);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .exercise-table th,
+  .exercise-table td {
+    padding: 12px 15px;
+    text-align: left;
+    color: #fff;
+  }
+  
+  .exercise-table th {
+    background-color: rgba(30, 30, 30, 0.85);
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  
+  .exercise-table td {
+    background-color: rgba(56, 53, 53, 0.85);
+  }
+  
+  .exercise-table tr:nth-child(even) td {
+    background-color: rgba(80, 80, 80, 0.85);
+  }
+  
+  .exercise-table tr:hover td {
+    background-color: rgba(70, 70, 70, 0.85);
+  }
+.calories-display {
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-list {
+    margin-top: 20px;
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.exercise-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.exercise-list li {
+    background: rgba(56, 53, 53, 0.85);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+
 .diary-text {
     font-size: 1.5em;
     font-weight: 600;
@@ -55,7 +129,7 @@
 }
 
 .date-navigation .current-date {
-    background-color: #e5ebe6;
+    background-color: #434443;
     font-weight: bolder;
     font-size: 1em;
     padding: 10px 15px;
@@ -158,6 +232,11 @@ button:hover {
         font-size: 0.9em;
         padding: 8px;
     }
+    .exercise-table th,
+    .exercise-table td {
+      padding: 10px 8px;
+      font-size: 0.9em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -167,6 +246,11 @@ button:hover {
     .exercise-form input {
         padding: 8px;
     }
+    .exercise-table th,
+  .exercise-table td {
+    padding: 8px 5px;
+    font-size: 0.8em;
+  }
     button {
         font-size: 0.8em;
         padding: 7px;

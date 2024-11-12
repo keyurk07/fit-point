@@ -7,36 +7,66 @@ import { Component } from '@angular/core';
 })
 export class CardioComponent {
   currentDate: Date;
+  calories: number | null = null; // Store the calculated calories
+
+  exerciseType: string = ''; // Default exercise type for cardio
+  distance: number = 0;
+  time: number = 0; // Time in minutes
+
+  exercises:{exerciseType:string;distance:number;time:number}[]=[];
 
   constructor() {
-    this.currentDate = new Date(); // Set the initial date to today's date
-  }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.currentDate = new Date(); // Initialize with today's date
   }
 
-  // Navigate to the previous day
+  ngOnInit(): void {
+    // Initial setup or data fetch if required
+  }
+
+  // Navigate to previous day
   goToPreviousDay() {
     this.currentDate.setDate(this.currentDate.getDate() - 1);
-    this.currentDate = new Date(this.currentDate); // Reassign to trigger Angular's change detection
+    this.currentDate = new Date(this.currentDate);
   }
 
-  // Navigate to the next day
+  // Navigate to next day
   goToNextDay() {
     this.currentDate.setDate(this.currentDate.getDate() + 1);
-    this.currentDate = new Date(this.currentDate); // Reassign to trigger Angular's change detection
+    this.currentDate = new Date(this.currentDate);
   }
 
-  // Method to handle "Add Exercise" button click
+  // Add cardio exercise handler
   addExercise() {
-    // Implement the logic for adding an exercise
-    console.log("Exercise added!");
+    if(this.exerciseType&&this.distance>0&&this.time>0){
+      this.exercises.push({
+        exerciseType:this.exerciseType,
+        distance:this.distance,
+        time:this.time
+      });
+      console.log("exercise added!");
+      this.exerciseType='';
+      this.distance=0;
+      this.time=0;
+    }else{
+      console.log("please enter valid details in fields");
+    }
   }
 
-  // Method to handle "Show Calories" button click
+  // Show calories handler
   showCalories() {
-    // Implement the logic for showing calories burned
-    console.log("Calories displayed!");
+    // Ensure the inputs are valid
+    if (this.distance > 0 && this.time > 0) {
+      this.calories = this.calculateCalories(this.distance, this.time);
+      console.log(`Calories calculated: ${this.calories} kcal`);
+    } else {
+      console.log("Please enter valid values for distance and time.");
+      this.calories = null; // Reset if invalid input
+    }
   }
 
+  // Calculate calories based on inputs
+  calculateCalories(distance: number, time: number): number {
+    // Example formula: calories = (distance in km * 50) + (time in minutes * 5)
+    return (distance * 50) + (time * 5); // Simplified calculation
+  }
 }

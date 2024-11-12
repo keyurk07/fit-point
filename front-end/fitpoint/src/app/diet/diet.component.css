@@ -4,23 +4,64 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height:auto;
-    background: url('/assets/images/pexels-nourabiad-27088091.jpg') no-repeat center center fixed;
+    height: auto;
+    background: url('/assets/images/pexels-helloaesthe-27077974.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
     padding-top: 10px;
 }
+
+/* Meal entries section styling */
+.meal-entries {
+    margin-top: 20px;
+    background-color: rgba(19, 18, 18, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.meal-entry {
+    margin-bottom: 15px;
+}
+
+.meal-entry p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Show Calories Button */
+.show-calories-button {
+    background-color: #ffd700;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.show-calories-button:hover {
+    background-color: #e5c100;
+}
+
+/* Diary text styling */
 .diary-text {
     font-size: 1.5em;
     font-weight: 600;
-    color: white;
+    color: black;
     margin: 0;
     padding-top: 5px;
     padding-bottom: 10px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 /* Date navigation styling */
 .date-navigation {
     display: flex;
@@ -76,6 +117,113 @@
 .date-navigation p {
     font-size: 1.1em;
     font-weight: bold;
-    color: white;
+    color: black;
     margin: 0;
+}
+
+/* Full background styling */
+.meal-tracker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: url('/assets/images/meal-tracker-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Title styling */
+.title h1 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Meal buttons styling */
+.meal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.meal-button {
+    background-color: #fffae5;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.meal-button:hover {
+    background-color: #ddd;
+}
+
+.meal-button.breakfast::before {
+    content: "🍽"; /* Icon for breakfast */
+    margin-right: 8px;
+}
+
+.meal-button.lunch::before {
+    content: "🍴"; /* Icon for lunch */
+    margin-right: 8px;
+}
+
+.meal-button.dinner::before {
+    content: "🍲"; /* Icon for dinner */
+    margin-right: 8px;
+}
+
+
+.meal-form {
+    background: rgba(56, 53, 53, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.meal-form h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.meal-form label {
+    font-weight: 700;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.meal-form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.meal-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.meal-form button:hover {
+    background-color: rgb(58, 57, 57);
 }

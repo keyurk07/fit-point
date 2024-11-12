@@ -3,30 +3,28 @@
  
     @import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-  <body>
-<div class="navbar navbar-light" style="background-color: #e3f2fd;" >
-    <!-- Logo and Title Container -->
-    <div class="navbar-brand">
-      <div class="navbar-logo">
-        <img src="/assets/images/i1.png" alt="Logo" />
+  
+    <div class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <!-- Logo and Title Container -->
+      <div class="navbar-brand">
+        <div class="navbar-logo">
+          <img src="/assets/images/i1.png" alt="Logo" />
+        </div>
+        <a href="/homepage" class="navbar-title-link"><div class="navbar-title">FitPoint</div></a>
       </div>
-      <a href="/homepage"><div class="navbar-title">FitPoint</div></a>
+    
+      <!-- Hamburger Menu for Mobile -->
+      <div class="navbar-hamburger" (click)="toggleMenu()">
+        <div class="hamburger-icon"></div>
+        <div class="hamburger-icon"></div>
+        <div class="hamburger-icon"></div>
+      </div>
+    
+      <!-- Navbar Links -->
+      <nav class="navbar-links" [class.active]="menuOpen">
+        <a *ngFor="let item of navItems" [routerLink]="item.routerLink" routerLinkActive="active">
+          <i [ngClass]="item.icon"></i>
+          {{ item.label }}
+        </a>
+      </nav>
     </div>
-  
-    <!-- Hamburger Menu for Mobile -->
-    <div class="navbar-hamburger" (click)="toggleMenu()">
-      <div class="hamburger-icon"></div>
-      <div class="hamburger-icon"></div>
-      <div class="hamburger-icon"></div>
-    </div>
-  
-    <!-- Navbar Links -->
-    <nav class="navbar-links" [class.active]="menuOpen">
-      <a *ngFor="let item of navItems" [routerLink]="item.routerLink" routerLinkActive="active">
-        <i [ngClass]="item.icon"></i>
-        {{ item.label }}
-      </a>
-    </nav>
-  </div>
-  </body>
-  

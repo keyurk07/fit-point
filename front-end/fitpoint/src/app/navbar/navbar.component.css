@@ -69,6 +69,19 @@
   border-radius: 2px;
   transition: background-color 0.3s ease;
 }
+/* Remove underline and add styling to make it look like regular text */
+.navbar-title-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits color from parent */
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+}
+
+.navbar-title-link:hover {
+  color: inherit; /* Prevents color change on hover */
+  text-decoration: none; /* Ensures no underline appears on hover */
+}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
