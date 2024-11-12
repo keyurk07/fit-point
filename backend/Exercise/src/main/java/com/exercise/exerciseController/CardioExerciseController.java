@@ -73,14 +73,6 @@ public class CardioExerciseController {
         return exercises.isEmpty() ? new ResponseEntity<>(HttpStatus.NOT_FOUND) : new ResponseEntity<>(exercises, HttpStatus.OK);
     }
     
-//    @GetMapping("/calculate-calories")
-//    public ResponseEntity<Double> calculateCaloriesBurnt(
-//            @RequestParam String exerciseType,
-//            @RequestParam double distance,
-//            @RequestParam long timeSpent) {
-//        double caloriesBurnt = cardioExerciseService.calculateCaloriesBurnt(exerciseType, distance, timeSpent);
-//        return new ResponseEntity<>(caloriesBurnt, HttpStatus.OK);
-//    }
     @PostMapping("/calculate-calories")
     public ResponseEntity<Double> calculateCaloriesBurnt(@RequestBody CardioExercise calorieRequest) {
         double caloriesBurnt = cardioExerciseService.calculateCaloriesBurnt(

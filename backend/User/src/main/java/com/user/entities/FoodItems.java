@@ -1,9 +1,9 @@
-package com.dietService.entities;
+package com.user.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+
 public class FoodItems {
 	
 	@Id
@@ -17,9 +17,6 @@ public class FoodItems {
 	public FoodItems() {
 		super();
 	}
-	
-	
-
 
 	public FoodItems(long itemId, String itemName, long qty, double calorie_per_gram, double protien_per_gram) {
 		super();

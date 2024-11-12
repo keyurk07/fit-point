@@ -1,17 +1,22 @@
-package com.dietService.entities;
+package com.user.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+
 public class DietEntry {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	long id;
 	String itemName;
 	long qty;
 	double calculated_calories;
 	double calculated_protiens;
+	long userId;
+	
 	public long getId() {
 		return id;
 	}
@@ -60,7 +65,6 @@ public class DietEntry {
 		this.userId = userId;
 	}
 
-	long userId;
 	
 	public DietEntry() {
 		super();
