@@ -10,8 +10,8 @@ public class DietEntry {
 	long id;
 	String itemName;
 	long qty;
-	long calculated_calories;
-	long calculated_protiens;
+	double calculated_calories;
+	double calculated_protiens;
 	public long getId() {
 		return id;
 	}
@@ -36,19 +36,19 @@ public class DietEntry {
 		this.qty = qty;
 	}
 
-	public long getCalculated_calories() {
+	public double getCalculated_calories() {
 		return calculated_calories;
 	}
 
-	public void setCalculated_calories(long calculated_calories) {
+	public void setCalculated_calories(double calculated_calories) {
 		this.calculated_calories = calculated_calories;
 	}
 
-	public long getCalculated_protiens() {
+	public double getCalculated_protiens() {
 		return calculated_protiens;
 	}
 
-	public void setCalculated_protiens(long calculated_protiens) {
+	public void setCalculated_protiens(double calculated_protiens) {
 		this.calculated_protiens = calculated_protiens;
 	}
 

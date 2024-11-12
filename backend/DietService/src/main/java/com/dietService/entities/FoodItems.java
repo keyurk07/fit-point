@@ -10,8 +10,8 @@ public class FoodItems {
 	long itemId;
 	String itemName;
 	long qty;
-	long calorie_per_gram;
-	long protien_per_gram;
+	double calorie_per_gram;
+	double protien_per_gram;
 	
 	
 	public FoodItems() {
@@ -21,7 +21,7 @@ public class FoodItems {
 	
 
 
-	public FoodItems(long itemId, String itemName, long qty, long calorie_per_gram, long protien_per_gram) {
+	public FoodItems(long itemId, String itemName, long qty, double calorie_per_gram, double protien_per_gram) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
@@ -63,22 +63,22 @@ public class FoodItems {
 	}
 
 
-	public long getCalorie_per_gram() {
+	public double getCalorie_per_gram() {
 		return calorie_per_gram;
 	}
 
 
-	public void setCalorie_per_gram(long calorie_per_gram) {
+	public void setCalorie_per_gram(double calorie_per_gram) {
 		this.calorie_per_gram = calorie_per_gram;
 	}
 
 
-	public long getProtien_per_gram() {
+	public double getProtien_per_gram() {
 		return protien_per_gram;
 	}
 
 
-	public void setProtien_per_gram(long protien_per_gram) {
+	public void setProtien_per_gram(double protien_per_gram) {
 		this.protien_per_gram = protien_per_gram;
 	}
 
