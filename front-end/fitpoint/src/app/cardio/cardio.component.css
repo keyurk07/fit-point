@@ -1,16 +1,21 @@
-/* Full background with centered content */
 .weightlifting-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height:auto;
-    background: url('/assets/images/pexels-gato-joseph-52379704-26726131.jpg') no-repeat center center fixed;
+    background: url('/assets/images/AdobeStock_317724775-scaled-1.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: white;
+    padding-top: 20px;
     font-family: 'Ubuntu', sans-serif;
-    text-align: center;
-    padding-top: 10px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    gap: 20px;
 }
 .exercise-list {
     margin-top: 20px;
@@ -20,39 +25,38 @@
     max-width: 600px;
   }
   
-  .exercise-table {
+.exercise-table-container {
+    flex: 1;
+    max-width: 45%;
+    max-height: 400px;
+    overflow-y: auto; /* Adds scrollbar when the table content overflows */
+    background: rgba(56, 53, 53, 0.85);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(56, 53, 53, 0.85);
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .exercise-table th,
-  .exercise-table td {
-    padding: 12px 15px;
-    text-align: left;
-    color: #fff;
-  }
-  
-  .exercise-table th {
-    background-color: rgba(30, 30, 30, 0.85);
+    color: white;
+    text-align: center;
+}
+
+.exercise-table th, .exercise-table td {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.exercise-table th {
+    background-color: rgba(0, 0, 0, 0.8);
     font-weight: bold;
-    font-size: 1.1em;
-  }
-  
-  .exercise-table td {
+}
+
+.exercise-table td {
     background-color: rgba(56, 53, 53, 0.85);
-  }
-  
-  .exercise-table tr:nth-child(even) td {
-    background-color: rgba(80, 80, 80, 0.85);
-  }
-  
-  .exercise-table tr:hover td {
-    background-color: rgba(70, 70, 70, 0.85);
-  }
+}
+
 .calories-display {
     margin: 20px auto;
     padding: 10px;

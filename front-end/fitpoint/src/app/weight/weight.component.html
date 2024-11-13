@@ -1,5 +1,4 @@
 <div class="weightlifting-container">
-  <!-- Date navigation and other UI elements -->
   <div class="title">
     <h1>Track Your Weightlifts</h1>
     <p class="diary-text">Your Exercise Diary for</p>
@@ -13,53 +12,58 @@
     </div>
   </div>
 
-  <div class="form">
-    <form class="exercise-form">
-      <label for="exercise-type">Exercise Type</label>
-      <input type="text" id="exercise-type" name="exercise-type" placeholder="e.g., Running" [(ngModel)]="exerciseType">
-      
-      <label for="sets">Sets</label>
-      <input type="number" id="sets" name="sets" placeholder="Enter sets" [(ngModel)]="sets">
-      
-      <label for="reps">Reps</label>
-      <input type="number" id="reps" name="reps" placeholder="Enter reps" [(ngModel)]="reps">
+  <div class="content-container">
+    <!-- Exercise Form on the Left -->
+    <div class="form">
+      <form class="exercise-form">
+        <label for="exercise-type">Exercise Type</label>
+        <input type="text" id="exercise-type" name="exercise-type" placeholder="e.g., Running" [(ngModel)]="exerciseType">
 
-      <label for="weight">Weight (kg)</label>
-      <input type="number" id="weight" name="weight" placeholder="Enter weight" [(ngModel)]="weight">
-  
-      <button type="button" (click)="addExercise()">Add Exercise</button>
-      <button type="button" (click)="showCalories()">Show Calories</button>
-      
-      <!-- Calories display, centered -->
-      <div class="calories-display" *ngIf="calories !== null">
-        <h3>Calories Burned:</h3>
-        <p>{{ calories }} kcal</p>
-      </div>
-    </form>
-  </div>
+        <label for="sets">Sets</label>
+        <input type="number" id="sets" name="sets" placeholder="Enter sets" [(ngModel)]="sets">
 
-  <!-- Exercise table with serial numbers -->
-  <div *ngIf="exercises.length > 0" class="exercise-table-container">
-    <h2>Exercises Added:</h2>
-    <table class="exercise-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Exercise Type</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Weight (kg)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let exercise of exercises; index as i">
-          <td>{{ i + 1 }}</td>
-          <td>{{ exercise.exerciseType }}</td>
-          <td>{{ exercise.sets }}</td>
-          <td>{{ exercise.reps }}</td>
-          <td>{{ exercise.weight }}</td>
-        </tr>
-      </tbody>
-    </table>
+        <label for="reps">Reps</label>
+        <input type="number" id="reps" name="reps" placeholder="Enter reps" [(ngModel)]="reps">
+
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" name="weight" placeholder="Enter weight" [(ngModel)]="weight">
+
+        <button type="button" (click)="addExercise()">Add Exercise</button>
+        <button type="button" (click)="showCalories()">Show Calories</button>
+
+        <!-- Calories Display -->
+        <div class="calories-display" *ngIf="calories !== null">
+          <h3>Calories Burned:</h3>
+          <p>{{ calories }} kcal</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Exercise Table on the Right -->
+    <div class="exercise-table-container">
+      <h2>Exercises Added:</h2>
+      <table class="exercise-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Exercise Type</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight (kg)</th>
+            <th>calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exercise of exercises; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ exercise.exerciseType }}</td>
+            <td>{{ exercise.sets }}</td>
+            <td>{{ exercise.reps }}</td>
+            <td>{{ exercise.weight }}</td>
+            <td>{{exercise.sets*exercise.reps*exercise.weight*0.5}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

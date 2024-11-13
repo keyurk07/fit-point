@@ -1,17 +1,21 @@
-/* Full background with centered content */
 .weightlifting-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: auto; /* Full height of the viewport */
     background: url('/assets/images/AdobeStock_317724775-scaled-1.jpeg') no-repeat center center fixed;
-    background-size: cover; /* Ensure the image covers the full container */
+    background-size: cover;
     color: white;
+    padding-top: 20px;
     font-family: 'Ubuntu', sans-serif;
-    text-align: center;
-    padding-top: 20px; /* Slight padding from the top */
-    position: relative; /* Ensure form stays within the container */
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    gap: 20px;
 }
 .calories-display {
     margin: 20px auto;
@@ -158,12 +162,9 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s;
     font-family: "Ubuntu", sans-serif;
-    font-weight: 700;
-    font-style: italic;
 }
 
 button:hover {
@@ -181,17 +182,20 @@ button:hover {
     font-family: 'Ubuntu', sans-serif;
 }
 .exercise-table-container {
-    margin-top: 20px;
-    width: 100%;
-    margin-bottom: 20px;
-    max-width: 600px;
-    color: white;
-    font-family: 'Ubuntu', sans-serif;
+    flex: 1;
+    max-width: 45%;
+    max-height: 400px;
+    overflow-y: auto; /* Adds scrollbar when the table content overflows */
+    background: rgba(56, 53, 53, 0.85);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .exercise-table {
     width: 100%;
     border-collapse: collapse;
+    color: white;
     text-align: center;
 }
 
@@ -203,12 +207,12 @@ button:hover {
 .exercise-table th {
     background-color: rgba(0, 0, 0, 0.8);
     font-weight: bold;
-    color: #fff;
 }
 
 .exercise-table td {
     background-color: rgba(56, 53, 53, 0.85);
 }
+
 /* Responsive styles */
 @media (max-width: 1024px) {
     .title h1 {

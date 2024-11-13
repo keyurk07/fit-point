@@ -14,7 +14,7 @@ export class CardioComponent {
   distance: number = 0;
   time: number = 0; // Time in minutes
 
-  exercises:{exerciseType:string;distance:number;time:number}[]=[];
+  exercises:{exerciseType:string;distance:number;timeSpent:number}[]=[];
 
   constructor(private cardioservice:CardioService) {
     this.currentDate = new Date(); // Initialize with today's date
@@ -22,7 +22,20 @@ export class CardioComponent {
   }
 
   ngOnInit(): void {
-    // Initial setup or data fetch if required
+    this.loadExercises();
+  }
+
+
+  loadExercises(): void {
+    this.cardioservice.getAllExercises().subscribe(
+      (data) => {
+        this.exercises = data;  // Populate exercises array with fetched data
+        console.log('Fetched exercises:', this.exercises);
+      },
+      (error) => {
+        console.error('Error fetching exercises', error);
+      }
+    );
   }
 
   // Navigate to previous day
@@ -43,7 +56,7 @@ export class CardioComponent {
       this.exercises.push({
         exerciseType:this.exerciseType,
         distance:this.distance,
-        time:this.time
+        timeSpent:this.time
       });
       console.log("exercise added!");
       

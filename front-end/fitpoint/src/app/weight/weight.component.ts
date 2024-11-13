@@ -14,9 +14,10 @@ export class WeightComponent implements OnInit {
   sets: number = 0;
   reps: number = 0;
   weight: number = 0;
+ 
 
-  // Array to store exercises
-  exercises: { exerciseType: string; sets: number; reps: number; weight: number; }[] = [];
+  // Array to store exercises\nulkl
+  exercises: { exerciseType: string; sets: number; reps: number; weight: number; calories:number|null }[] = [];
 
   constructor(private weightservice: WeightService) {
     this.currentDate = new Date(); // Initialize with today's date
@@ -55,16 +56,31 @@ this.loadExercises();
         exerciseType: this.exerciseType,
         sets: this.sets,
         reps: this.reps,
-        weight: this.weight
+        weight: this.weight,
+        calories:this.calories
       });
       console.log("Exercise added!");
       
-      // Reset fields after adding
+
       this.weightservice.add(this.exerciseType, this.sets, this.reps,this.weight);
       this.exerciseType = '';
       this.sets = 0;
       this.reps = 0;
       this.weight = 0;
+
+      if (this.exerciseType && this.sets > 0 && this.reps > 0 && this.weight > 0) {
+        this.weightservice.calc(this.exerciseType, this.sets, this.reps, this.weight).subscribe(
+          response => {
+            this.calories = response;
+          },
+          error => {
+            console.error("Error calculating calories", error);
+          }
+        );
+      } else {
+        console.log("Please enter valid values for exercise type, distance, and time.");
+        this.calories = null;
+      }
     } else {
       console.log("Please enter valid values for all fields.");
     }

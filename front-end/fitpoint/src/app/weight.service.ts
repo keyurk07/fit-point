@@ -29,7 +29,7 @@ export class WeightService {
     return this.http.post<number>(urlcalc, jsonRequestBody); // Return observable without subscribing
   }
   getAllExercises(): Observable<any >{
-    const url = "http://localhost:9001/api/weight-exercises"; // Replace with your actual endpoint
+    const url = "http://localhost:9001/api/weight-exercise"; // Replace with your actual endpoint
     return this.http.get<any>(url); // Returns an observable list of exercises
   }
 

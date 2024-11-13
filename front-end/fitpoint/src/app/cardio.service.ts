@@ -27,6 +27,10 @@ export class CardioService {
 
     return this.http.post<number>(urlcalc, jsonRequestBody); // Return observable without subscribing
   }
+  getAllExercises(): Observable<any >{
+    const url = "http://localhost:9001/api/cardio-exercises"; // Replace with your actual endpoint
+    return this.http.get<any>(url); // Returns an observable list of exercises
+  }
 
   }
     
