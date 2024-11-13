@@ -19,8 +19,33 @@
                     <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName" required />
                 </div>
                 <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" required />
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        [(ngModel)]="password" 
+                        required
+                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                        #passwordField="ngModel" />
+                    
+                    <!-- Password Validation Error Messages -->
+                    <div class="error-messages" *ngIf="passwordField.invalid && passwordField.touched">
+                        <p *ngIf="passwordField.errors?.['required']">Password is required.</p>
+                        <p *ngIf="passwordField.errors?.['pattern']">Password must contain:</p>
+                        <ul *ngIf="passwordField.errors?.['pattern']">
+                            <li>At least 8 characters</li>
+                            <li>One uppercase letter</li>
+                            <li>One lowercase letter</li>
+                            <li>One number</li>
+                            <li>One special character (@$!%*?&)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="text" id="contactNumber" name="contactNumber" [(ngModel)]="contactNumber" required />
                 </div>
                 <div class="form-group">
                     <label>Gender</label>
@@ -59,7 +84,7 @@
                     <select id="goal" name="goal" [(ngModel)]="goal" required>
                         <option value="Weight Loss">Weight Loss</option>
                         <option value="Weight Gain">Weight Gain</option>
-                        <option value="Fitness">Fitness</option>
+                       
                     </select>
                 </div>
                 <button type="submit" class="signup-btn" [disabled]="!signupForm.form.valid">Sign Up</button>

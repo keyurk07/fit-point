@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="CloudGateway/src/main/java"/>
+	<classpathentry kind="src" path="CloudGateway/src/test/java"/>
+	<classpathentry kind="src" path="Diet/src/main/java"/>
+	<classpathentry kind="src" path="Diet/src/test/java"/>
+	<classpathentry kind="src" path="Exercise/src/main/java"/>
+	<classpathentry kind="src" path="Exercise/src/test/java"/>
+	<classpathentry kind="src" path="UrekaRegistry/src/main/java"/>
+	<classpathentry kind="src" path="UrekaRegistry/src/test/java"/>
+	<classpathentry kind="src" path="User/src/main/java"/>
+	<classpathentry kind="src" path="User/src/test/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

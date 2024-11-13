@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeightService } from '../weight.service';
 
 @Component({
   selector: 'app-weight',
@@ -17,11 +18,25 @@ export class WeightComponent implements OnInit {
   // Array to store exercises
   exercises: { exerciseType: string; sets: number; reps: number; weight: number; }[] = [];
 
-  constructor() {
+  constructor(private weightservice: WeightService) {
     this.currentDate = new Date(); // Initialize with today's date
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+this.loadExercises();
+  }
+  loadExercises(): void {
+    this.weightservice.getAllExercises().subscribe(
+      (data) => {
+        this.exercises = data;  // Populate exercises array with fetched data
+        console.log('Fetched exercises:', this.exercises);
+      },
+      (error) => {
+        console.error('Error fetching exercises', error);
+      }
+    );
+  }
 
   goToPreviousDay() {
     this.currentDate.setDate(this.currentDate.getDate() - 1);
@@ -45,6 +60,7 @@ export class WeightComponent implements OnInit {
       console.log("Exercise added!");
       
       // Reset fields after adding
+      this.weightservice.add(this.exerciseType, this.sets, this.reps,this.weight);
       this.exerciseType = '';
       this.sets = 0;
       this.reps = 0;
@@ -55,16 +71,23 @@ export class WeightComponent implements OnInit {
   }
 
   showCalories() {
-    if (this.sets > 0 && this.reps > 0 && this.weight > 0) {
-      this.calories = this.calculateCalories(this.sets, this.reps, this.weight);
-      console.log(`Calories calculated: ${this.calories} kcal`);
+    if (this.exerciseType && this.sets > 0 && this.reps > 0 && this.weight > 0) {
+      this.weightservice.calc(this.exerciseType, this.sets, this.reps, this.weight).subscribe(
+        response => {
+          this.calories = response; // Set the calories value based on response
+          console.log(`Calories calculated: ${this.calories} kcal`);
+        },
+        error => {
+          console.error("Error calculating calories", error);
+        }
+      );
     } else {
-      console.log("Please enter valid values for sets, reps, and weight.");
+      console.log("Please enter valid values for exercise type, distance, and time.");
       this.calories = null; // Reset if invalid input
     }
   }
 
-  calculateCalories(sets: number, reps: number, weight: number): number {
-    return sets * reps * weight * 0.1; // Example calculation formula
-  }
+  // calculateCalories(sets: number, reps: number, weight: number): number {
+  //   return sets * reps * weight * 0.1; 
+  // }
 }

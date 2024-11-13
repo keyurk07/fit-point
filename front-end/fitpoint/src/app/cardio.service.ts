@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +20,19 @@ export class CardioService {
         console.error("error!!- try adding again",error);
       }
     )
+  }
+  calc(exerciseType: string, distance: number, time: number): Observable<number> {
+    const urlcalc = "http://localhost:9001/api/cardio-exercises/calculate-calories";
+    const jsonRequestBody = { exerciseType, distance, timeSpent: time };
+
+    return this.http.post<number>(urlcalc, jsonRequestBody); // Return observable without subscribing
+  }
 
   }
-}
+    
+
+   
+
+
+    
+

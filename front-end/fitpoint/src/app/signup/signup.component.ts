@@ -11,7 +11,8 @@ export class SignupComponent {
 
   firstName: string = '';
   lastName: string = '';
-  phoneNumber: string = '';
+  password:string='';
+  contactNumber: string = '';
   height: number | null = null;
   weight: number | null = null;
   age: number | null = null;
@@ -21,7 +22,8 @@ export class SignupComponent {
   onSubmit() {
     console.log('First Name:', this.firstName);
     console.log('Last Name:', this.lastName);
-    console.log('Phone Number:', this.phoneNumber);
+    console.log('password:', this.password);
+    console.log('contact Number:', this.contactNumber);
     console.log('Height:', this.height);
     console.log('Weight:', this.weight);
     console.log('Age:', this.age);

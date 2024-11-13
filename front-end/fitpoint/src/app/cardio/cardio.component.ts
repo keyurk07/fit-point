@@ -58,19 +58,24 @@ export class CardioComponent {
 
   // Show calories handler
   showCalories() {
-    // Ensure the inputs are valid
-    if (this.distance > 0 && this.time > 0) {
-      this.calories = this.calculateCalories(this.distance, this.time);
-      console.log(`Calories calculated: ${this.calories} kcal`);
+    if (this.exerciseType && this.distance > 0 && this.time > 0) {
+      this.cardioservice.calc(this.exerciseType, this.distance, this.time).subscribe(
+        response => {
+          this.calories = response; // Set the calories value based on response
+          console.log(`Calories calculated: ${this.calories} kcal`);
+        },
+        error => {
+          console.error("Error calculating calories", error);
+        }
+      );
     } else {
-      console.log("Please enter valid values for distance and time.");
+      console.log("Please enter valid values for exercise type, distance, and time.");
       this.calories = null; // Reset if invalid input
     }
   }
-
   // Calculate calories based on inputs
-  calculateCalories(distance: number, time: number): number {
-    // Example formula: calories = (distance in km * 50) + (time in minutes * 5)
-    return (distance * 50) + (time * 5); // Simplified calculation
-  }
+  // calculateCalories(distance: number, time: number): number {
+   
+  //   return (distance * 50) + (time * 5); 
+  // }
 }

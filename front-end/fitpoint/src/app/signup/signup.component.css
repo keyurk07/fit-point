@@ -31,6 +31,51 @@
     justify-content: center;
     margin-bottom: 20px;
 }
+/* Password Field and Validation Messages Styling */
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Styling for Error Messages */
+.error-messages {
+    margin-top: 5px;
+    color: #d9534f; /* Red color for error messages */
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.error-messages p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.error-messages ul {
+    margin: 5px 0 0 20px;
+    padding: 0;
+    list-style-type: disc;
+}
+
+.error-messages li {
+    font-weight: normal;
+}
+
+/* Highlight input border when invalid */
+input[type="password"]:invalid {
+    border-color: #d9534f; /* Red border when invalid */
+}
+
+input[type="password"]:focus:invalid {
+    outline: none;
+    box-shadow: 0 0 5px rgba(217, 83, 79, 0.5); /* Red glow when invalid */
+}
 
 .logo {
     width: 50px;
