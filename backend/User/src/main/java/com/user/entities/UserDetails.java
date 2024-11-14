@@ -17,10 +17,12 @@ public class UserDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userId;
 	private String userName;
+	private String password;
 	private String contactNumber;
 	private long height;
 	private double weight;
 	private long age;
+	private long targetweight;
 	private String gender;
 	private String goal;
 	

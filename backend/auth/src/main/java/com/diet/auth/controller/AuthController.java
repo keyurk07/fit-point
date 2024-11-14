@@ -1,10 +1,12 @@
 package com.diet.auth.controller;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,7 @@ import com.diet.auth.service.JwtService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class AuthController {
 
 	
@@ -45,7 +48,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user){
     	String token=authService.validateUser(user);
-    	return new ResponseEntity<>(token,HttpStatus.OK);
+    	return new ResponseEntity<>(Map.entry("token", token),HttpStatus.OK);
     }
 
     @GetMapping("/user/{username}")

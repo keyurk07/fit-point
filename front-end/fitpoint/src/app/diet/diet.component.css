@@ -1,68 +1,28 @@
-/* Full background with centered content */
+/* Container for main layout with form on left and entries on right */
 .diet-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-    background: url('/assets/images/pexels-helloaesthe-27077974.jpg') no-repeat center center fixed;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: url('/assets/images/meal-tracker-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: white;
     font-family: 'Ubuntu', sans-serif;
+    padding-top: 20px;
     text-align: center;
-    padding-top: 10px;
 }
 
-/* Meal entries section styling */
-.meal-entries {
-    margin-top: 20px;
-    background-color: rgba(19, 18, 18, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.meal-entry {
-    margin-bottom: 15px;
-}
-
-.meal-entry p {
-    margin: 5px 0;
-    font-size: 1em;
-}
-
-/* Show Calories Button */
-.show-calories-button {
-    background-color: #ffd700;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1em;
-    transition: background-color 0.3s;
-    margin-top: 15px;
-}
-
-.show-calories-button:hover {
-    background-color: #e5c100;
-}
-
-/* Diary text styling */
 .diary-text {
     font-size: 1.5em;
     font-weight: 600;
-    color: black;
+    color: white;
     margin: 0;
     padding-top: 5px;
     padding-bottom: 10px;
     font-family: 'Ubuntu', sans-serif;
 }
 
-/* Date navigation styling */
 .date-navigation {
     display: flex;
     align-items: center;
@@ -90,13 +50,13 @@
 
 .date-navigation .previous,
 .date-navigation .next {
-    width: 40px; /* Adjust width to fit symbol size */
-    padding: 5px; /* Smaller padding for compact look */
-    font-size: 1.2em; /* Adjust font size to make symbols clear */
+    width: 40px;
+    padding: 5px;
+    font-size: 1.2em;
 }
 
 .date-navigation .current-date {
-    background-color: #e5ebe6;
+    background-color: #434443;
     font-weight: bolder;
     font-size: 1em;
     padding: 10px 15px;
@@ -109,7 +69,6 @@
     font-size: 1.2em;
 }
 
-/* Date button hover effects */
 .date-navigation button:hover {
     background-color: #434443;
 }
@@ -117,22 +76,52 @@
 .date-navigation p {
     font-size: 1.1em;
     font-weight: bold;
-    color: black;
+    color: white;
     margin: 0;
 }
 
-/* Full background styling */
-.meal-tracker-container {
+/* Left side (form container) */
+.form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    background: url('/assets/images/meal-tracker-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: black;
-    font-family: 'Ubuntu', sans-serif;
-    text-align: center;
+    width: 45%;
     padding: 20px;
+    background-color: rgba(56, 53, 53, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.form-container h2 {
+    color: #ffffff;
+}
+
+/* Meal entries section styling */
+.meal-entries-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    background-color: rgba(19, 18, 18, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.meal-entries {
+    width: 100%;
+    max-width: 500px;
+}
+
+.meal-entry {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.meal-entry p {
+    margin: 5px 0;
+    font-size: 1em;
 }
 
 /* Title styling */
@@ -166,44 +155,23 @@
 }
 
 .meal-button.breakfast::before {
-    content: "🍽"; /* Icon for breakfast */
+    content: "🍽";
     margin-right: 8px;
 }
 
 .meal-button.lunch::before {
-    content: "🍴"; /* Icon for lunch */
+    content: "🍴";
     margin-right: 8px;
 }
 
 .meal-button.dinner::before {
-    content: "🍲"; /* Icon for dinner */
+    content: "🍲";
     margin-right: 8px;
 }
 
-
-.meal-form {
-    background: rgba(56, 53, 53, 0.85);
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: #fff;
-}
-
-.meal-form h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
-
-.meal-form label {
-    font-weight: 700;
-    display: block;
-    margin: 10px 0 5px;
-}
-
+/* Input styling */
 .meal-form input {
-    width: 90%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: none;
@@ -219,11 +187,27 @@
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
-    font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     transition: background-color 0.3s;
 }
 
 .meal-form button:hover {
     background-color: rgb(58, 57, 57);
+}
+
+.show-calories-button {
+    background-color: #ffd700;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.show-calories-button:hover {
+    background-color: #e5c100;
 }

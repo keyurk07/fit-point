@@ -149,6 +149,15 @@ select {
     text-align: center;
     margin-top: 20px;
   }
+  .weight .unit{
+    position: absolute;
+    right: 10px; /* Move unit closer to the border */
+    top: 50%;
+   
+    font-size: 14px;
+    color: #555;
+    font-family: 'Poppins', sans-serif; 
+  }
   
   .register-link a {
     color: #e91e63;

@@ -11,13 +11,10 @@
             <!-- Signup Form -->
             <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
                 <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName" required />
+                    <label for="username">user Name</label>
+                    <input type="text" id="username" name="username" [(ngModel)]="username" required />
                 </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName" required />
-                </div>
+               
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input 
@@ -76,6 +73,11 @@
                         <label for="age">Age</label>
                         <input type="number" id="age" name="age" [(ngModel)]="age" required />
                     </div>
+                </div>
+                <div class="form-group weight">
+                    <label for="target">Target weight</label>
+                    <input type="text" id="target" name="target" [(ngModel)]="target" required />
+                    <span class="unit">kg</span> 
                 </div>
 
                 
