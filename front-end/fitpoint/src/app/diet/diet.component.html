@@ -1,0 +1,59 @@
+<div class="diet-container">
+    <!-- Form Container -->
+    <div class="form-container">
+        <div class="title">
+            <h1>Track Your Meals</h1>
+            <p class="diary-text">Your Diet Diary for</p>
+            <div class="date-navigation">
+                <button (click)="goToPreviousDay()" class="previous">&#8249;</button>
+                <button class="current-date">
+                    <span class="calendar-icon">&#128197;</span>
+                    <p>{{ currentDate | date: 'fullDate' }}</p>
+                </button>
+                <button (click)="goToNextDay()" class="next">&#8250;</button>
+            </div>
+        </div>
+
+        <div class="meal-buttons">
+            <button (click)="selectMeal('breakfast')" class="meal-button breakfast">Breakfast</button>
+            <button (click)="selectMeal('lunch')" class="meal-button lunch">Lunch</button>
+            <button (click)="selectMeal('dinner')" class="meal-button dinner">Dinner</button>
+        </div>
+
+        <form class="meal-form">
+            <h2>{{ selectedMeal | titlecase }} Details</h2>
+
+            <label for="food-name">Food Name</label>
+            <input type="text" id="food-name" placeholder="e.g., Oatmeal">
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" placeholder="Enter quantity">
+
+            <div class="button-container">
+                <button type="button" (click)="addMeal()">Add {{ selectedMeal | titlecase }}</button>
+                <button type="button" class="show-calories-button" (click)="calculateCalories()">Show Calories</button>
+            </div>
+
+            <!-- Calories Display Section -->
+            <div *ngIf="calories > 0" class="calories-display-container">
+                <div class="calories-display">
+                    <h3>Calories: {{ calories }}</h3>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Meal Entries Container -->
+    <div class="meal-entries-container">
+        <h2>Meal Entries</h2>
+        <div *ngIf="showEntries" class="meal-entries">
+            <div *ngFor="let entry of mealEntries" class="meal-entry">
+                <p><strong>Meal:</strong> {{ entry.meal | titlecase }}</p>
+                <p><strong>Food Name:</strong> {{ entry.foodName }}</p>
+                <p><strong>Quantity:</strong> {{ entry.quantity }}</p>
+                <p><strong>Calories:</strong> {{ entry.calories }}</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="signup-page">
+    <div class="signup-container">
+        <div class="signup-form">
+            <div class="form-header">
+                <img src="/assets/images/i1.png" alt="FitPoint Logo" class="logo" />
+                <div class="line"></div>
+                <h2>FitPoint</h2>
+            </div>
+            <h1 class="signup-title">REGISTER</h1>
+
+            <!-- Signup Form -->
+            <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+                <div class="form-group">
+                    <label for="username">user Name</label>
+                    <input type="text" id="username" name="username" [(ngModel)]="username" required />
+                </div>
+               
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        [(ngModel)]="password" 
+                        required
+                        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                        #passwordField="ngModel" />
+                    
+                    <!-- Password Validation Error Messages -->
+                    <div class="error-messages" *ngIf="passwordField.invalid && passwordField.touched">
+                        <p *ngIf="passwordField.errors?.['required']">Password is required.</p>
+                        <p *ngIf="passwordField.errors?.['pattern']">Password must contain:</p>
+                        <ul *ngIf="passwordField.errors?.['pattern']">
+                            <li>At least 8 characters</li>
+                            <li>One uppercase letter</li>
+                            <li>One lowercase letter</li>
+                            <li>One number</li>
+                            <li>One special character (@$!%*?&)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="text" id="contactNumber" name="contactNumber" [(ngModel)]="contactNumber" required />
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" [(ngModel)]="gender" value="Male" required /> Male</label>
+                        <label><input type="radio" name="gender" [(ngModel)]="gender" value="Female" required /> Female</label>
+                        <label><input type="radio" name="gender" [(ngModel)]="gender" value="Other" required /> Others</label>
+                        <label><input type="radio" name="gender" [(ngModel)]="gender" value="nottosay" required /> Prefer not to say</label>
+                    </div>
+                </div>
+                
+                <div class="form-group-inline">
+                    <div class="form-group input-with-unit">
+                        <label for="height">Height</label>
+                        <div class="input-container">
+                            <input type="number" id="height" name="height" [(ngModel)]="height" required />
+                            <span class="unit">cm</span>
+                        </div>
+                    </div>
+                    <div class="form-group input-with-unit">
+                        <label for="weight">Weight</label>
+                        <div class="input-container">
+                            <input type="number" id="weight" name="weight" [(ngModel)]="weight" required />
+                            <span class="unit">kg</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" [(ngModel)]="age" required />
+                    </div>
+                </div>
+                <div class="form-group weight">
+                    <label for="target">Target weight</label>
+                    <input type="text" id="target" name="target" [(ngModel)]="target" required />
+                    <span class="unit">kg</span> 
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="goal">Goal</label>
+                    <select id="goal" name="goal" [(ngModel)]="goal" required>
+                        <option value="Weight Loss">Weight Loss</option>
+                        <option value="Weight Gain">Weight Gain</option>
+                       
+                    </select>
+                </div>
+                <button type="submit" class="signup-btn" [disabled]="!signupForm.form.valid">Sign Up</button>
+            </form>
+            <p class="register-link">Don't have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+</div>
