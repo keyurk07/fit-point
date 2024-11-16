@@ -17,6 +17,8 @@ import { DietComponent } from './diet/diet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReportsComponent } from './reports/reports.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
      WeightComponent,
      DietComponent,
      ReportsComponent,
-     DashboardComponent
+     DashboardComponent,
+     ProfileComponent,
+     RecommendationsComponent
   ],
   imports: [
     BrowserModule,

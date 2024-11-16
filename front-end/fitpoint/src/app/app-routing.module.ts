@@ -10,6 +10,7 @@ import { WeightComponent } from './weight/weight.component';
 import { DietComponent } from './diet/diet.component';
 import { ReportsComponent } from './reports/reports.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecommendationsComponent } from './recommendations/recommendations.component';
 
 
 const routes: Routes = [
@@ -19,11 +20,13 @@ const routes: Routes = [
    {path:'login',component:LoginComponent},
   { path: 'homepage', component: HomepageComponent },
   {path: 'signup',component:SignupComponent},
-  {path:'exercise',component:ExerciseComponent},
+  {path:'workout',component:ExerciseComponent},
   {path:'food',component:DietComponent},
   {path:'reports',component:ReportsComponent},
   {path:'cardio',component: CardioComponent},  
   {path:'weight',component:WeightComponent}, 
+  {path:'recommendations',component:RecommendationsComponent},
+ 
   { path: '**', component: ErrorComponent } 
 ];
 

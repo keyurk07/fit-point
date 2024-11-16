@@ -6,69 +6,57 @@ import { Component } from '@angular/core';
   styleUrls: ['./diet.component.css']
 })
 export class DietComponent {
-  currentDate: Date = new Date();
-  selectedMeal: string = 'breakfast'; // Default meal is breakfast
-  calories: number = 0;
-  mealEntries: any[] = [];
-  showEntries: boolean = false; // Flag to toggle meal entries display
-  
-  // This method will allow navigating to the previous day
-  goToPreviousDay(): void {
+  currentDate: Date;
+  constructor() {
+    this.currentDate = new Date();
+    
+  }
+  goToPreviousDay() {
     this.currentDate.setDate(this.currentDate.getDate() - 1);
+    this.currentDate = new Date(this.currentDate);
   }
 
-  // This method will allow navigating to the next day
-  goToNextDay(): void {
+  
+  goToNextDay() {
     this.currentDate.setDate(this.currentDate.getDate() + 1);
+    this.currentDate = new Date(this.currentDate);
+  }
+  mealType: string = 'Breakfast';  // Default meal type
+  dishName: string = '';
+  amount: number | null = null;
+  noOfItems: number | null = null;
+  meals: { dishName: string, calories: number }[] = [];  // Store meals data
+
+  // Set the meal type (Breakfast, Lunch, or Dinner)
+  setMealType(type: string) {
+    this.mealType = type;
+    this.dishName = '';
+    this.amount = null;
+    this.noOfItems = null;
   }
 
-  // This method is used to select a meal (Breakfast, Lunch, or Dinner)
-  selectMeal(meal: string): void {
-    this.selectedMeal = meal;
-    this.calories = 0; // Reset calories when meal is changed
+  // Calculate calories (simple example: calories = amount * 0.2 for each item)
+  calculateCalories(): number {
+    if (this.amount && this.noOfItems) {
+      return this.amount * this.noOfItems * 0.2;  // You can change the formula as needed
+    }
+    return 0;
   }
 
-  // This method adds a new meal entry to the mealEntries array
-  addMeal(): void {
-    const foodName = (document.getElementById('food-name') as HTMLInputElement).value;
-    const quantity = parseFloat((document.getElementById('quantity') as HTMLInputElement).value);
-    const items = parseInt((document.getElementById('items') as HTMLInputElement).value, 10);
+  // Add meal entry and display it on the right
+  addMeal() {
+    if (this.dishName && this.amount && this.noOfItems) {
+      const calories = this.calculateCalories();
+      this.meals.push({
+        dishName: this.dishName,
+        calories: calories
+      });
 
-    if (foodName && quantity && items) {
-      const caloriesPerUnit = this.calculateCaloriesBasedOnMeal(foodName, quantity, items);
-      const newMeal = {
-        meal: this.selectedMeal,
-        foodName,
-        quantity,
-        items,
-        calories: caloriesPerUnit
-      };
-      this.mealEntries.push(newMeal);
-      this.showEntries = true; // Show meal entries after adding a new meal
+      // Clear form after submission
+      this.dishName = '';
+      this.amount = null;
+      this.noOfItems = null;
     }
   }
 
-  // This method calculates the calories based on food, quantity, and items
-  calculateCaloriesBasedOnMeal(foodName: string, quantity: number, items: number): number {
-    let calorieCount = 0;
-    
-    if (foodName.toLowerCase() === 'oatmeal') {
-      calorieCount = 100 * quantity * items; // Example, 100 calories per unit
-    } else if (foodName.toLowerCase() === 'banana') {
-      calorieCount = 90 * quantity * items; // Example, 90 calories per unit
-    }
-    
-    return calorieCount;
-  }
-
-  // This method calculates the total calories for the selected meal
-  calculateCalories(): void {
-    const foodName = (document.getElementById('food-name') as HTMLInputElement).value;
-    const quantity = parseFloat((document.getElementById('quantity') as HTMLInputElement).value);
-    const items = parseInt((document.getElementById('items') as HTMLInputElement).value, 10);
-
-    if (foodName && quantity && items) {
-      this.calories = this.calculateCaloriesBasedOnMeal(foodName, quantity, items);
-    }
-  }
 }

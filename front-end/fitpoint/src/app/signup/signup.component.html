@@ -8,7 +8,7 @@
             </div>
             <h1 class="signup-title">REGISTER</h1>
 
-            <!-- Signup Form -->
+           
             <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
                 <div class="form-group">
                     <label for="username">user Name</label>
@@ -26,7 +26,7 @@
                         pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                         #passwordField="ngModel" />
                     
-                    <!-- Password Validation Error Messages -->
+                    
                     <div class="error-messages" *ngIf="passwordField.invalid && passwordField.touched">
                         <p *ngIf="passwordField.errors?.['required']">Password is required.</p>
                         <p *ngIf="passwordField.errors?.['pattern']">Password must contain:</p>

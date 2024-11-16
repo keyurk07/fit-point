@@ -1,7 +1,7 @@
-// navbar.component.ts
+
 import { Component } from '@angular/core';
-import { navItems } from './navData';
 import { Router } from '@angular/router';
+import { navItems } from './navData';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   // constructor(private router: Router) { }
-  menuOpen = false; // For the hamburger menu toggle
+  menuOpen = false; 
   navItems = navItems;
 
   toggleMenu() {

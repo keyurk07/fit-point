@@ -1,9 +1,9 @@
-// dashboard.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 
 interface User {
-  username: string;
+  userName: string;
   password: string;
   contactNumber: string;
   gender: string;
@@ -21,12 +21,14 @@ interface User {
 })
 export class DashboardComponent implements OnInit {
   user: User | null = null;
-  activeSection = 'user'; // Default section
-  showCalorieTracker: boolean = false;
+  activeTab = 'dashboard'; 
+  totalCaloriesLost = 0;
+  caloriesToBurn = 0;
+
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
-    const userId = 1; // Set a specific user ID or retrieve dynamically
+    const userId = 1; 
     this.loadUserData(userId);
   }
 
@@ -34,17 +36,19 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getUserById(id).subscribe(
       (data: User) => {
         console.log('User data:', data);
-        this.user = data; // Assign fetched data to `this.user`
+        this.user = data;
+        this.calculateCalories();
       },
       (error: any) => {
         console.error('Error fetching user data:', error);
       }
     );
   }
-  toggleCalorieTracker(): void {
-    this.showCalorieTracker = !this.showCalorieTracker; // Toggle the state
-  }
-  showSection(section: string): void {
-    this.activeSection = section;
+
+  calculateCalories(): void {
+    if (this.user) {
+    
+      this.caloriesToBurn = 1800 - 1700;
+    }
   }
 }

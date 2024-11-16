@@ -8,15 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent {
   constructor(private router: Router) { }
-  menuOpen: boolean = false;  // Flag to toggle menu visibility
-
-  // Toggle menu visibility when hamburger icon is clicked
+  menuOpen: boolean = false;  
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
   
-  // Method to navigate to the 'food' route when the clickable area is clicked
   navigateToFood() {
     this.router.navigate(['/food']);
   }

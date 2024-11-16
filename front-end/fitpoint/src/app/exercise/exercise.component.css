@@ -1,43 +1,36 @@
-.exe{
+.exe {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background: url('/assets/images/pexels-yaroslav-shuraev-8692269.jpg') no-repeat center center fixed;
     background-size: cover;
-    /* background-attachment: fixed; */
-  
-  }
+}
+
 .exercise-container {
     display: flex;
     justify-content: space-around;
     padding: 20px;
     gap: 100px;
-    /* width: 100%; */
 }
 
 .exercise-card {
-    /* width: 45%; */
-    height:350px;
+    height: 350px;
     width: 350px;
     padding: 20px;
-    background:  rgba(200, 226, 226, 0.85)    ; /* Transparent white */
+    background: rgba(200, 226, 226, 0.85);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-   
-        
-      
-      
 }
-.exercise-card h1{
+
+.exercise-card h1 {
     font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     font-style: italic;
 }
 
 .exercise-card h2 {
-   
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
@@ -45,31 +38,30 @@
     font-weight: 500;
     font-style: italic;
 }
+
 .exercise-weight {
-    /* width: 45%; */
-    height:350px;
+    height: 350px;
     width: 350px;
     padding: 20px;
-    background: rgba(89, 99, 99, 0.85)    ; /* Transparent white */
+    background: rgba(89, 99, 99, 0.85);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
-.exercise-weight h1{
+
+.exercise-weight h1 {
     font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     font-style: italic;
 }
 
 .exercise-weight h2 {
-
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
     font-style: italic;
-
 }
 
 button {
@@ -86,35 +78,34 @@ button {
 button:hover {
     background-color: #218838;
 }
-/* Responsive styles for tablet screens and smaller */
+
 @media (max-width: 768px) {
     .exercise-container {
         margin-top: 50px;
-        flex-direction: column; /* Stack the exercise cards vertically */
-        align-items: center; /* Center align the items */
-        gap: 20px; /* Reduce gap between the cards */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
     .exercise-card, .exercise-weight {
-        width: 90%; /* Adjust width to fit within smaller screens */
+        width: 90%;
     }
 }
 
-/* Responsive styles for mobile screens */
 @media (max-width: 480px) {
     .exercise-container {
         margin-top: 40px;
-        padding: 10px; /* Reduce padding on smaller screens */
+        padding: 10px;
     }
 
     .exercise-card, .exercise-weight {
-        width: 100%; /* Full width for very small screens */
-        height: auto; /* Allow height to adjust naturally */
-        padding: 15px; /* Adjust padding to fit smaller screens */
+        width: 100%;
+        height: auto;
+        padding: 15px;
     }
 
     button {
-        font-size: 14px; /* Slightly smaller button font size */
-        padding: 8px 16px; /* Adjust button padding */
+        font-size: 14px;
+        padding: 8px 16px;
     }
 }

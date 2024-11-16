@@ -13,7 +13,7 @@
   </div>
 
   <div class="content-container">
-    <!-- Exercise Form on the Left -->
+
     <div class="form">
       <form class="exercise-form">
         <label for="exercise-type">Exercise Type</label>
@@ -31,7 +31,7 @@
         <button type="button" (click)="addExercise()">Add Exercise</button>
         <button type="button" (click)="showCalories()">Show Calories</button>
 
-        <!-- Calories Display -->
+       
         <div class="calories-display" *ngIf="calories !== null">
           <h3>Calories Burned:</h3>
           <p>{{ calories }} kcal</p>
@@ -39,7 +39,7 @@
       </form>
     </div>
 
-    <!-- Exercise Table on the Right -->
+   
     <div class="exercise-table-container">
       <h2>Exercises Added:</h2>
       <table class="exercise-table">

@@ -1,41 +1,61 @@
 <div class="logo-container">
-  <img src="'/assets/images/male.png'" alt="Profile Logo" class="profile-logo" />
+  <img src="/assets/images/male.png" alt="Profile Logo" class="profile-logo" />
+  <h2>{{ user?.userName }}</h2>
 </div>
+
+<div class="button-container">
+  <button class="nav-btn" [class.active]="activeTab === 'dashboard'" (click)="activeTab = 'dashboard'">Dashboard</button>
+  <button class="nav-btn" [class.active]="activeTab === 'calories'" (click)="activeTab = 'calories'">Calorie Tracker</button>
+</div>
+
 <div class="dashboard-container">
-  <div *ngIf="user; else loading" class="dashboard-content">
-    <h2>User Dashboard</h2>
+  <div *ngIf="user; else loading">
     
-    <div class="user-info">
-      <!-- Left column containing basic user info -->
-      <div class="left-column">
-        <p><strong>Username:</strong> {{ user.username }}</p>
-        <p><strong>Age:</strong> {{ user.age }}</p>
-        <p><strong>Gender:</strong> {{ user.gender }}</p>
-        <p><strong>Contact:</strong> {{ user.contactNumber }}</p>
+   
+    <div *ngIf="activeTab === 'dashboard'" class="dashboard-content">
+      <h2>User Dashboard</h2>
+      <div class="user-info">
+        <div class="left-column">
+          <p><strong>Username:</strong> {{ user.userName }}</p>
+          <p><strong>Age:</strong> {{ user.age }}</p>
+          <p><strong>Gender:</strong> {{ user.gender }}</p>
+          <p><strong>Contact:</strong> {{ user.contactNumber }}</p>
+        </div>
+        <div class="right-column">
+          <p><strong>Height:</strong> {{ user.height }} cm</p>
+          <p><strong>Weight:</strong> {{ user.weight }} kg</p>
+          <p><strong>Target Weight:</strong> {{ user.targetweight }} kg</p>
+          <p><strong>Goal:</strong> {{ user.goal }}</p>
+        </div>
       </div>
-      
-      <!-- Right column containing additional user info -->
-      <div class="right-column">
-        <p><strong>Height:</strong> {{ user.height }} cm</p>
-        <p><strong>Weight:</strong> {{ user.weight }} kg</p>
-        <p><strong>Target Weight:</strong> {{ user.targetweight }} kg</p>
-        <p><strong>Goal:</strong> {{ user.goal }}</p>
+    </div>
+    
+ 
+    <div *ngIf="activeTab === 'calories'" class="dashboard-content">
+      <h2>Calorie Tracker</h2>
+      <div class="calorie-cards">
+        <div class="calorie-card">
+          <p><strong>Total Calories Consumed:</strong></p>
+          <h3>2200 cal</h3>
+        </div>
+        <div class="calorie-card">
+          <p><strong>Calories Burned:</strong></p>
+          <h3>1700 cal</h3>
+        </div>
+        <div class="calorie-card">
+          <p><strong>Target calories:</strong></p>
+          <h3>1800 cal</h3>
+        </div>
+        <div class="calorie-card">
+          <p><strong>Calories Remaining to Burn:</strong></p>
+          <h3>{{ caloriesToBurn }} cal</h3>
+        </div>
       </div>
     </div>
 
-    <!-- Calorie Tracker Button -->
-    <button class="calorie-tracker-btn" (click)="toggleCalorieTracker()">Calorie Tracker</button>
-
-    <!-- Calorie Tracker Section -->
-    <div *ngIf="showCalorieTracker" class="calorie-tracker-section">
-      <!-- <p><strong>Calories Consumed:</strong> {{ user.caloriesConsumed }} kcal</p>
-      <p><strong>Calories Burned:</strong> {{ user.caloriesBurned }} kcal</p>
-      <p><strong>Calories Remaining:</strong> {{ user.targetCaloriesRemaining }} kcal</p>
-      <p><strong>Calories to Burn:</strong> {{ user.targetCaloriesToBurn }} kcal</p> -->
-    </div>
   </div>
 
-  <!-- Loading state -->
+
   <ng-template #loading>
     <p class="loading-text">Loading user data...</p>
     <div class="loading-spinner"></div>

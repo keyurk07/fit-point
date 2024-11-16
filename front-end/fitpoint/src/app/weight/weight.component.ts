@@ -16,11 +16,11 @@ export class WeightComponent implements OnInit {
   weight: number = 0;
  
 
-  // Array to store exercises\nulkl
+ 
   exercises: { exerciseType: string; sets: number; reps: number; weight: number; calories:number|null }[] = [];
 
   constructor(private weightservice: WeightService) {
-    this.currentDate = new Date(); // Initialize with today's date
+    this.currentDate = new Date(); 
   }
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ this.loadExercises();
   loadExercises(): void {
     this.weightservice.getAllExercises().subscribe(
       (data) => {
-        this.exercises = data;  // Populate exercises array with fetched data
+        this.exercises = data;  
         console.log('Fetched exercises:', this.exercises);
       },
       (error) => {
@@ -51,7 +51,7 @@ this.loadExercises();
 
   addExercise() {
     if (this.exerciseType && this.sets > 0 && this.reps > 0 && this.weight > 0) {
-      // Add exercise to the list
+    
       this.exercises.push({
         exerciseType: this.exerciseType,
         sets: this.sets,
@@ -99,7 +99,7 @@ this.loadExercises();
       );
     } else {
       console.log("Please enter valid values for exercise type, distance, and time.");
-      this.calories = null; // Reset if invalid input
+      this.calories = null; 
     }
   }
 

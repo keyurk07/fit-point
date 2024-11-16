@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class SignupService {
     age: number | null ,
     target: string,
     gender: string,
-    goal: string){
+    goal: string):Observable<any>{
     let url="http://localhost:9000/user/api";
     let jsonRequestBody:any={ userName:username ,password:password,
       contactNumber: contactNumber,
@@ -26,14 +27,8 @@ export class SignupService {
       targetweight:target ,
       gender: gender,
       goal: goal };
-      this.httpclient.post(url,jsonRequestBody).subscribe(
-        response=>{
-          console.log("cardio-exercise added",response);
-        },
-        error=>{
-          console.error("error!!- try adding again",error);
-        }
-      )
+      return this.httpclient.post(url,jsonRequestBody);
+      
 
 
    
