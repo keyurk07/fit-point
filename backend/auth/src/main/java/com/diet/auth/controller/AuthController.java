@@ -45,10 +45,25 @@ public class AuthController {
         return authService.saveUser(user);
     }
     
+//    @PostMapping("/login")
+//    public ResponseEntity<?> loginUser(@RequestBody User user){
+//    	Map<String, Object> token=authService.validateUser(user);
+//    	return new ResponseEntity<>(Map.entry(
+//                "userId", userId,"token", token),HttpStatus.OK);
+//    }
+    
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody User user){
-    	String token=authService.validateUser(user);
-    	return new ResponseEntity<>(Map.entry("token", token),HttpStatus.OK);
+    public ResponseEntity<?> loginUser(@RequestBody User user) {
+        // Call validateUser to get the userId and token
+        Map<String, Object> response = authService.validateUser(user);
+
+        if (response != null) {
+            // Return the userId and token if authentication is successful
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            // Return Unauthorized if authentication fails
+            return new ResponseEntity<>("Invalid username or password", HttpStatus.UNAUTHORIZED);
+        }
     }
 
     @GetMapping("/user/{username}")

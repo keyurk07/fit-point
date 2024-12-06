@@ -1,5 +1,6 @@
 package com.diet.auth.service;
 
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,15 +39,32 @@ public class AuthService {
 		return userRepository.save(user);
 	}
 
-	public String validateUser(User user) {
-		Authentication auth = authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-		if (auth.isAuthenticated()) {
-
-			return jwtService.createToken(user.getUsername());
-		}
-		return null;
+//	public String validateUser(User user) {
+//		Authentication auth = authenticationManager
+//				.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+//		if (auth.isAuthenticated()) {
+//
+//			return jwtService.createToken(user.getUsername());
+//		}
+//		return null;
+//	}
+	
+	public Map<String, Object> validateUser(User user) {
+	    Authentication auth = authenticationManager
+	            .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+	    if (auth.isAuthenticated()) {
+	        Optional<User> validatedUser = userRepository.findByUsername(user.getUsername());
+	        if (validatedUser.isPresent()) {
+	            String token = jwtService.createToken(user.getUsername());
+	            return Map.of(
+	                "userId", validatedUser.get().getId(),
+	                "token", token
+	            );
+	        }
+	    }
+	    return null;
 	}
+
 
 	public boolean validateToken(String token) {
 		jwtService.validateToken(token);

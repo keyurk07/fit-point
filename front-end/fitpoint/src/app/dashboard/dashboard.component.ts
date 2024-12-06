@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 
@@ -20,16 +19,32 @@ interface User {
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
   user: User | null = null;
-  activeTab = 'dashboard'; 
+  activeTab = 'dashboard';
   totalCaloriesLost = 0;
   caloriesToBurn = 0;
+  userId: number | null = null;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService
+  ) {}
 
   ngOnInit(): void {
-    const userId = 1; 
-    this.loadUserData(userId);
+    // Get the userId from localStorage
+    this.userId = this.getUserIdFromLocalStorage();
+
+    if (this.userId) {
+      this.loadUserData(this.userId+1);  // Pass userId to load user data
+    } else {
+      console.error('No userId found');
+    }
+  }
+
+  // Get the userId from localStorage
+  getUserIdFromLocalStorage(): number | null {
+    const storedUserId = localStorage.getItem('userId');
+    return storedUserId ? parseInt(storedUserId, 10) : null;
   }
 
   loadUserData(id: number): void {
@@ -47,8 +62,7 @@ export class DashboardComponent implements OnInit {
 
   calculateCalories(): void {
     if (this.user) {
-    
-      this.caloriesToBurn = 1800 - 1700;
+      this.caloriesToBurn = 1800 - 1700;  // Dummy calculation, adjust as needed
     }
   }
 }
